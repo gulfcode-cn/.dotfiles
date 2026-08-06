@@ -115,5 +115,17 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
 alias bat='batcat'
+
+#'W'command , clean and list all files in modified time order
 source ~/.dotfiles/scripts/My_dear_jiaoben.sh
+
+#auto turn on tmux
+if [[ -z $TMUX ]];then
+	tmux attach -t main || tmux new -s main
+fi
+
+#auto intsall tool package and update packagesList
+export PATH="$HOME/.dotfiles/bin:$PATH"
+

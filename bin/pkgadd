@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -Eeuo pipefail
+
+dotfiles="$HOME/.dotfiles"
+packages="$dotfiles/packages.txt"
+
+#判断参数数量是否为0
+if [[ $# == 0 ]];then
+	printf 'Usage: %s [apt-name]...\n' "pkgadd"
+	exit 1
+fi
+
+#安装指定工具包
+echo $'Installing...'
+sudo apt-get install -y "$@"
+
+#将下载好的工具包加入packages.txt
+printf '%s\n' "$@" >> "$packages"
+
+#去重排序
+sort -u "$packages" > temp.txt && mv temp.txt "$packages"
+
+echo
+echo "Updated $packages"

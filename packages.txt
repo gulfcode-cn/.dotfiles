@@ -1,5 +1,5 @@
+
 #预安装软件包List
 bat
-tmux
 ripgrep
-
+tmux
