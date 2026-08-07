@@ -129,3 +129,7 @@ fi
 #auto intsall tool package and update packagesList
 export PATH="$HOME/.dotfiles/bin:$PATH"
 
+#auto start ssh-agent if it's not already running
+if [[ -z "$SSH_AUTH_SOCK" ]];then
+	eval "$(ssh-agent -s)" >/dev/null
+fi
