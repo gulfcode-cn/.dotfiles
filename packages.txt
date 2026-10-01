@@ -3,3 +3,4 @@
 bat
 ripgrep
 tmux
+neovim
